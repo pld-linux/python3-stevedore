@@ -85,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 	--root=$RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/stevedore/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/stevedore/example
 
 %py_postclean
 %endif
@@ -97,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 	--root=$RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/tests
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/example
 %endif
 
 %clean
