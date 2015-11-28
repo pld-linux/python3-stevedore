@@ -59,7 +59,7 @@ Manage dynamic plugins for Python applications
 
 %build
 %if %{with python2}
-%{__python} setup.py build --build-base build-2
+%py_build
 
 %if %{with tests}
 PYTHONPATH=. nosetests-%{py_ver}
@@ -67,7 +67,7 @@ PYTHONPATH=. nosetests-%{py_ver}
 %endif
 
 %if %{with python3}
-%{__python3} setup.py build --build-base build-3 %{?with_tests:test}
+%py3_build %{?with_tests:test}
 
 %if %{with tests}
 PYTHONPATH=. nosetests-%{py3_ver}
@@ -78,11 +78,7 @@ PYTHONPATH=. nosetests-%{py3_ver}
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%{__python} setup.py \
-	build --build-base build-2 \
-	install --skip-build \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/stevedore/tests
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/stevedore/example
@@ -91,11 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %if %{with python3}
-%{__python3} setup.py \
-	build --build-base build-3 \
-	install --skip-build \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py3_install
 
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/tests
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/example
