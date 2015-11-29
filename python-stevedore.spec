@@ -15,7 +15,7 @@ Source0:	http://pypi.python.org/packages/source/s/stevedore/stevedore-%{version}
 # Source0-md5:	b7f30055c32410f8f9b6cf1b55bdc68a
 URL:		https://github.com/dreamhost/stevedore
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-setuptools
 %if %{with tests}
