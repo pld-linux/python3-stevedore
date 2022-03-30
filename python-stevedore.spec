@@ -8,7 +8,7 @@
 Summary:	Manage dynamic plugins for Python applications
 Name:		python-%{module}
 Version:	1.25.0
-Release:	5
+Release:	6
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	https://pypi.python.org/packages/08/58/e21f4691e8e75a290bdbfa366f06b9403c653642ef31f879e07f6f9ad7db/stevedore-1.25.0.tar.gz
