@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	Zarządzanie dynamicznymi wtyczkami dla aplikacji Pythona
 Name:		python-%{module}
 # keep 1.x here for python2 support
 Version:	1.32.0
-Release:	2
+Release:	3
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/stevedore/
