@@ -16,20 +16,20 @@ Source0:	https://files.pythonhosted.org/packages/source/s/stevedore/stevedore-%{
 # Source0-md5:	d8ce49d9a513d454bec0e897ce10062b
 URL:		https://pypi.org/project/stevedore/
 BuildRequires:	python3-pbr >= 2.0.0
+BuildRequires:	python3-modules >= 1:3.9
 BuildRequires:	python3-setuptools
+%if %{with tests}
+BuildRequires:	python3-Sphinx >= 2.0.0
+BuildRequires:	python3-coverage >= 4.0
+BuildRequires:	python3-stestr >= 2.0.0
+%endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-%if %{with tests}
-BuildRequires:	python3-coverage >= 4.0
-#BuildRequires:	python3-mock >= 2.0.0
-BuildRequires:	python3-six >= 1.10.0
-BuildRequires:	python3-stestr >= 2.0.0
-BuildRequires:	sphinx-pdg-3 >= 1.7.0
-%endif
 %if %{with doc}
-BuildRequires:	python3-openstackdocstheme >= 1.11.0
-BuildRequires:	python3-reno >= 2.5.0
-BuildRequires:	sphinx-pdg-3 >= 1.7.0
+BuildRequires:	python3-openstackdocstheme >= 2.2.1
+# actually not used
+#BuildRequires:	python3-reno >= 3.1.0
+BuildRequires:	sphinx-pdg-3 >= 2.0.0
 %endif
 Requires:	python3-modules >= 1:3.9
 BuildArch:	noarch
@@ -56,7 +56,11 @@ Dokumentacja API modułu Pythona stevedore.
 %setup -q -n stevedore-%{version}
 
 %build
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+stestr run stevedore/tests
+%endif
 
 %if %{with doc}
 PYTHONPATH=$(pwd) \
@@ -64,7 +68,6 @@ sphinx-build-3 -b html doc/source doc/source/_build/html
 %endif
 
 %install
-
 rm -rf $RPM_BUILD_ROOT
 
 %py3_install
