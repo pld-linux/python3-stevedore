@@ -7,16 +7,16 @@
 Summary:	Manage dynamic plugins for Python applications
 Summary(pl.UTF-8):	Zarządzanie dynamicznymi wtyczkami dla aplikacji Pythona
 Name:		python3-%{module}
-Version:	5.4.1
+Version:	5.9.1
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/stevedore/
 Source0:	https://files.pythonhosted.org/packages/source/s/stevedore/stevedore-%{version}.tar.gz
-# Source0-md5:	d8ce49d9a513d454bec0e897ce10062b
+# Source0-md5:	72a197823cb696dce7dd577529deecc6
 URL:		https://pypi.org/project/stevedore/
-BuildRequires:	python3-pbr >= 2.0.0
-BuildRequires:	python3-modules >= 1:3.9
+BuildRequires:	python3-pbr >= 6.1.1
+BuildRequires:	python3-modules >= 1:3.11
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-Sphinx >= 2.0.0
@@ -31,7 +31,7 @@ BuildRequires:	python3-openstackdocstheme >= 2.2.1
 #BuildRequires:	python3-reno >= 3.1.0
 BuildRequires:	sphinx-pdg-3 >= 2.0.0
 %endif
-Requires:	python3-modules >= 1:3.9
+Requires:	python3-modules >= 1:3.11
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -74,6 +74,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/tests
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/example
+# imports the removed stevedore.example
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/stevedore/example2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
