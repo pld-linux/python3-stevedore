@@ -7,13 +7,13 @@
 Summary:	Manage dynamic plugins for Python applications
 Summary(pl.UTF-8):	Zarządzanie dynamicznymi wtyczkami dla aplikacji Pythona
 Name:		python3-%{module}
-Version:	5.9.1
+Version:	5.10.0
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/stevedore/
 Source0:	https://files.pythonhosted.org/packages/source/s/stevedore/stevedore-%{version}.tar.gz
-# Source0-md5:	72a197823cb696dce7dd577529deecc6
+# Source0-md5:	cd3b19c3c989fc7c7e167c5404408280
 URL:		https://pypi.org/project/stevedore/
 BuildRequires:	python3-pbr >= 6.1.1
 BuildRequires:	python3-modules >= 1:3.11
